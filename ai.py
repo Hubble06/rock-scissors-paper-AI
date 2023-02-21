@@ -1,12 +1,3 @@
-# Made by KDY of D.H.S. feat.LCH.T
-# 오전 1:04 2022-11-08 최종수정 [KDY]
-
-# 정확도의 향상 방안
-# 1,Teachable Machine의 데이터량 증가
-# 2,Epoch값 증가,학습량 증가
-# 3,배경의 일치화 (Recommend = White)
-# 4,데이터의 특징을 일치화 (동일한 배경, 각 손동작의 특이점 대두)
-
 import tensorflow.keras     # 티처블 머신이 Tensorflow기반이므로 import
 import numpy as np          # Tensorflow와 함께 사용
 import cv2                  # 파이썬에서 영상처리를 위한 Open-CV를 import
@@ -67,39 +58,11 @@ else:
 
 # player변수의 값을 아래 코드를 통해 PC의 값과 비교
 
-if computer == 'scissor':
-    print('컴퓨터는 가위를 냈습니다.')
-    if player == 'scissor':
-        print('플레이어는 가위를 냈습니다.')
-        print('무승부')
-    elif player == 'rock':
-        print('플레이어는 바위를 냈습니다.')
-        print('플레이어 승리')   
-    elif player == 'paper':
-        print('플레이어는 보를 냈습니다.')
-        print('컴퓨터 승리')
-
-elif computer == 'rock':
-    print('컴퓨터는 바위를 냈습니다.')
-    if player == 'scissor':
-        print('플레이어는 가위를 냈습니다.')
-        print('컴퓨터 승리')
-    elif player == 'rock':
-        print('플레이어는 바위를 냈습니다.')
-        print('무승부')
-    elif player == 'paper':
-        print('플레이어는 보를 냈습니다.')
-        print('플레이어 승리')
-        
-elif computer == 'paper':
-    print('컴퓨터는 보를 냈습니다.')
-    if player == 'scissor':
-        print('플레이어는 가위를 냈습니다.')
-        print('플레이어 승리')
-    elif player == 'rock':
-        print('플레이어는 바위를 냈습니다.')
-        print('컴퓨터 승리') 
-    elif player == 'paper':
-        print('플레이어는 보를 냈습니다.')
-        print('무승부')
+if computer == player:
+    print('비겼습니다.')
+else:
+    if (computer == 'scissor' and player == 'rock') or (computer == 'rock' and player == 'paper') or (computer == 'paper' and player == 'scissors'):
+        print('이겼습니다.')
+    else:
+        print('졌습니다.')
 
